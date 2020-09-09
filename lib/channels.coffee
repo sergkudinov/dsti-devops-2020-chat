@@ -11,7 +11,6 @@ module.exports =
       users: users
         .map (user) -> user.username
         .sort()
-      messages: []
     channels[channel.id] = channel
     channel
   exists: (channel) ->
