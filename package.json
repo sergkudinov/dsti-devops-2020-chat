@@ -25,6 +25,7 @@
     "should": "^13.2.3"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "level": "^6.0.1",
     "nano-time": "^1.0.0",
     "parameters": "^0.7.3",

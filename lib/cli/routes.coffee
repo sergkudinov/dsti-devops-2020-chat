@@ -1,6 +1,7 @@
 
 channels = require '../channels'
 users = require '../users'
+web = require '../web'
 
 module.exports =
   users:
@@ -36,4 +37,9 @@ module.exports =
         writer.write "  users:\n"
         for user in record.users
           writer.write "  - #{JSON.stringify user}\n"
+  server:
+    start: ({params, writer}) ->
+      params.port ?= 3000
+      web.listen params.port, ->
+        writer.write "Web application listening at http://localhost:#{params.port}\n"
         

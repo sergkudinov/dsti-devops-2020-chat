@@ -66,4 +66,15 @@ module.exports =
           description: 'List created channels.'
           route:
             routes.channels.list
+    server:
+      commands:
+        start:
+          description: 'Start the web server.'
+          options:
+            port:
+              description: "Web server port to listent to."
+              type: 'integer'
+              shortcut: 'p'
+          route:
+            routes.server.start
               
