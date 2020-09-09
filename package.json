@@ -8,7 +8,8 @@
   "mocha": {
     "throw-deprecation": true,
     "require": [
-      "coffeescript/register"
+      "coffeescript/register",
+      "should"
     ],
     "timeout": 40000,
     "reporter": "spec",

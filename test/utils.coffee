@@ -1,5 +1,4 @@
 
-require 'should'
 utils = require '../lib/utils'
 
 describe 'utils', ->
