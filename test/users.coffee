@@ -1,4 +1,5 @@
 
+require './test'
 users = require '../lib/users'
 
 describe 'users', ->

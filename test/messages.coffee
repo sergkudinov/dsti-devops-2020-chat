@@ -1,4 +1,5 @@
 
+require './test'
 channels = require '../lib/channels'
 messages = require '../lib/messages'
 users = require '../lib/users'
