@@ -27,6 +27,7 @@
   "dependencies": {
     "level": "^6.0.1",
     "nano-time": "^1.0.0",
+    "parameters": "^0.7.3",
     "uuid": "^8.3.0"
   }
 }
