@@ -19,6 +19,11 @@ describe 'channels', ->
     # Check if channel exists
     channels.exists(channel)
     .should.resolvedWith true
+      
+  it 'dont exists', ->
+    # Check if channel exists
+    channels.exists('invalid')
+    .should.resolvedWith false
   
   it 'list', ->
     # Create our users

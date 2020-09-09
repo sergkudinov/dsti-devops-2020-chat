@@ -14,7 +14,12 @@ module.exports =
     await db.put "channels:#{channel.id}", JSON.stringify channel
     channel
   exists: (channel) ->
-    !! await db.get "channels:#{channel.id}"
+    id = if typeof channel is 'string'
+    then channel
+    else channel.id
+    try
+      !! await db.get "channels:#{id}"
+    catch err then false
   list: () ->
     new Promise (resolve, reject) ->
       data = []
