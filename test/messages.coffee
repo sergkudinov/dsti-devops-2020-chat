@@ -7,34 +7,36 @@ describe 'messages', ->
   
   it 'publish message', ->
     # Create our users
-    user_1 = users.create
+    user_1 = await users.create
       username: 'user_1'
-    user_2 = users.create
+    user_2 = await users.create
       username: 'user_2'
     # Create our channel
-    channel = channels.create [
+    channel = await channels.create [
       user_1
       user_2
     ]
     # Publish a message
-    messages.publish channel,
+    await messages.publish channel,
       message: 'my message'
-    messages.list(channel).length.should.equals 1
+    records = await messages.list channel
+    records.length.should.equals 1
   
   it 'publish messages', ->
     # Create our users
-    user_1 = users.create
+    user_1 = await users.create
       username: 'user_1'
-    user_2 = users.create
+    user_2 = await users.create
       username: 'user_2'
     # Create our channel
-    channel = channels.create [
+    channel = await channels.create [
       user_1
       user_2
     ]
     # Publis a message
-    messages.publish channel,
+    await messages.publish channel,
       message: 'my message'
-    messages.publish channel,
+    await messages.publish channel,
       message: 'my message'
-    messages.list(channel).length.should.equals 2
+    records = await messages.list channel
+    records.length.should.equals 2

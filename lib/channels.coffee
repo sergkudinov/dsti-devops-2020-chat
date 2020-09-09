@@ -1,7 +1,7 @@
 
 { v4: uuid } = require 'uuid'
 
-channels = {}
+db = require './db'
 
 module.exports =
   create: (users) ->
@@ -11,8 +11,8 @@ module.exports =
       users: users
         .map (user) -> user.username
         .sort()
-    channels[channel.id] = channel
+    await db.put "channels:#{channel.id}", channel
     channel
   exists: (channel) ->
-    !!channels[channel.id]
+    !! await db.get "channels:#{channel.id}"
     

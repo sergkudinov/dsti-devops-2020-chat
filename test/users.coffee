@@ -4,8 +4,9 @@ users = require '../lib/users'
 describe 'users', ->
   
   it 'create user', ->
-    user = users.create
+    user = await users.create
       username: 'david'
       email: 'david@adaltas.com'
-    users.exists(user).should.be.true()
+    users.exists(user)
+    .should.resolvedWith true
     
