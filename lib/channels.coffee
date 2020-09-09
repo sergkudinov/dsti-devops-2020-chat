@@ -4,12 +4,16 @@
 db = require './db'
 
 module.exports =
-  create: (users) ->
+  create: (channel) ->
     channel_id = uuid()
     channel =
       id: channel_id
-      users: users
-        .map (user) -> user.username
+      name: channel.name
+      users: channel.users
+        .map (user) ->
+          if typeof user is 'string'
+          then user
+          else user.username
         .sort()
     await db.put "channels:#{channel.id}", JSON.stringify channel
     channel
