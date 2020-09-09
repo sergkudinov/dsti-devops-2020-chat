@@ -8,7 +8,7 @@ module.exports =
     for key, value of user
       continue if key is username
       record[key] = value
-    await db.put "users:#{username}", username
+    await db.put "users:#{username}", JSON.stringify record
     user
   exists: (user) ->
     username = if typeof user is 'string'
@@ -16,4 +16,17 @@ module.exports =
     else user.username
     user = await db.get "users:#{username}"
     !!user
-    # !!users[username]
+  list: () ->
+    new Promise (resolve, reject) ->
+      data = []
+      db.createReadStream
+        gt: "users:"
+        lte: "users"+String.fromCharCode(":".charCodeAt(0) + 1)
+      .on 'data', (record) ->
+        value = JSON.parse record.value
+        value.username = record.key
+        data.push value
+      .on 'error', (err) ->
+        reject err
+      .on 'end', ->
+        resolve data
