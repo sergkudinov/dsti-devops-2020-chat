@@ -33,6 +33,10 @@ module.exports =
               shortcut: 'u'
           route:
             routes.users.exists
+        list:
+          description: 'List created users.'
+          route:
+            routes.users.list
     channels:
       commands:
         create:

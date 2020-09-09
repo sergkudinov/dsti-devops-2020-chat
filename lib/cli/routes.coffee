@@ -12,6 +12,12 @@ module.exports =
       writer.write if exists
       then "User #{JSON.stringify params.username} exists.\n"
       else "User #{JSON.stringify params.username} does not exist.\n"
+    list: ({writer}) ->
+      records = await users.list()
+      writer.write "Users are:\n"
+      for record in records
+        writer.write "- username: #{JSON.stringify record.username}\n"
+        writer.write "  email: #{JSON.stringify record.email}\n"
   channels:
     create: ({params, writer}) ->
       await channels.create params
