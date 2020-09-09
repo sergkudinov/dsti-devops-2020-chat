@@ -3,9 +3,9 @@ require './test'
 channels = require '../lib/channels'
 users = require '../lib/users'
 
-describe 'messages', ->
+describe 'channels', ->
   
-  it 'publish message', ->
+  it 'create', ->
     # Create our users
     user_1 = await users.create
       username: 'user_1'
@@ -16,5 +16,24 @@ describe 'messages', ->
       user_1
       user_2
     ]
+    # Check if channel exists
     channels.exists(channel)
     .should.resolvedWith true
+  
+  it 'list', ->
+    # Create our users
+    user_1 = await users.create
+      username: 'user_1'
+    user_2 = await users.create
+      username: 'user_2'
+    # Create our channels
+    channel_1 = await channels.create [
+      user_1
+      user_2
+    ]
+    channel_2 = await channels.create [
+      user_1
+    ]
+    # List the channles
+    records = await channels.list()
+    records.length.should.equals 2
