@@ -14,8 +14,9 @@ module.exports =
     username = if typeof user is 'string'
     then user
     else user.username
-    user = await db.get "users:#{username}"
-    !!user
+    try
+      !! await db.get "users:#{username}"
+    catch err then false
   list: () ->
     new Promise (resolve, reject) ->
       data = []

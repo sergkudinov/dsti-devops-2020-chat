@@ -11,6 +11,11 @@ describe 'users', ->
     users.exists(user)
     .should.resolvedWith true
       
+  it 'dont exists', ->
+    # Check if channel exists
+    users.exists('invalid')
+    .should.resolvedWith false
+      
   it 'list users', ->
     user_1 = await users.create
       username: 'user_1'
