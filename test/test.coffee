@@ -1,7 +1,5 @@
 
-{exec} = require 'child_process'
+db = require '../lib/db'
 
 beforeEach ->
-  new Promise (resolve, reject) ->
-    exec "rm -rf #{__dirname+'/../db'}", (err) ->
-      if err then reject(err) else resolve()
+  await db.clear()
