@@ -7,3 +7,10 @@ script:
 - npm install
 - echo 'Testing'
 - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: SiELTqPOXn+fao7bJNNnGwJv31mkTUDHvqwbwMZkowMiJi9qynRPf9p3Pu7kkB40xJ8ucByzs6J+piOMeWjLmcfTOSTnJfzmPvlONGIyXyKMgYtFmkIDWLb0hytycKrn5OV/JskuLdsQN8BV1F40BcXj2Jbqn2iaOcqiYAKRO9ALYZecQa1tqXIKaVBQKZApERMCRYIOHG3LXZXCP7alP5H1LNwXEwCLrKO7BNAhDl73H70tQN1dlwyU7xQdGZr2U9oIw7KTLfNub68KbXswQydx8MkhL7OiHplKfI+ARavlW6LFY9gW1JGWn4xGL3iZNeIluxUTMe/D6Awz4NZGMFaRpNWiu8N/k8TJbBFvgz681+NlvHXggJf19rGSJ5lx1lkGHN1Q3BJrdwCZUDRTNjaX/uTVOw/RkCz05oEJMJWYWtmHDSXix2qX2pQEvgD4vhQin7AvUgX+XqjihJ/Rak0X4vwanwn+fxEVl1vIYKzrwHzH81FSYp8CI+zM9eGUnUIX7L31FUhad++KAAGrWF38GgaO6OK+0ru2rRjJ8XhnaCk6wBainvIqBuW9bBpAEZRP3x2DRaC+lsHAOh3qdRCP30c5QvUYd3MW0bw1kwCSmrLxwe9HRclDrkHe6E8idHj3NhNVyE0zmyHRRhj9//JolR1GqpreQ/E3SvcDGl8=
+  app: dsti-devops-2020-chat-sergei
+  on:
+    repo: sergkudinov/dsti-devops-2020-chat
