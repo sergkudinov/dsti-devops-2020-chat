@@ -7,6 +7,7 @@ app = express()
 app.get '/', (req, res) ->
   res.send """
   <h1>Welcome to the DSTI chat application.</h1>
+  <p>It is easy!</p>
   
   <p>Here are some REST API available:</p>
   <ul>
